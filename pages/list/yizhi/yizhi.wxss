@@ -1,0 +1,5 @@
+/* pages/list/yizhi/yizhi.wxss */
+page{background:#fff;font-size:30rpx}
+.yizhiImg{padding:0;}
+.yizhiImg image{width:100%;}
+.listAll{padding:0 30rpx 30rpx;}

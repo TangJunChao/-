@@ -1,0 +1,3 @@
+/* pages/list/new/new.wxss */
+page{background:#fff;font-size:30rpx}
+.listAll{padding:0 30rpx 30rpx;}

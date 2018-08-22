@@ -1,0 +1,13 @@
+.listPart{margin:30rpx;padding:30rpx;background:#fff;border-radius:10rpx;box-shadow:0 0 15rpx rgba(0,0,0,0.2);font-size:30rpx;}
+.listPart .indexHeader{margin-top:0;padding:0;}
+.listBanner{position:relative;margin:0 30rpx 30rpx;border-radius:10rpx;box-shadow:0 0 15rpx rgba(0,0,0,0.3);background:#fff;height:476rpx}
+.banImg{height:476rpx;width:100%;}
+.listThree.po{position:absolute;bottom:0;left:0;width:100%;}
+.listThree .list{flex:1;text-align:center;padding-bottom:30rpx;}
+.listThree .listImg{width:116rpx;height:116rpx;}
+.listThree .list text{display:block;font-size:28rpx;color:#bbb;}
+.listThree .list .title{font-size:32rpx;color:#333;}
+.listPartLast{position:relative;margin:0 30rpx;padding:30rpx 0;}
+.listPartLast .indexHeader{padding:0 40rpx;}
+.listPartLast .listThree .list{margin-top:20rpx;padding-bottom:0;}
+page{padding-bottom:30rpx;}

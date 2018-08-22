@@ -1,0 +1,70 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="bannerMain" bindtap='preImg' data-src='{{banner.linkSrc}}'>
+    <image class='bannerImg' src="{{banner.imgSrc}}"></image>
+    <view class='left-layout'>
+      <image src='{{banner.gameSrc}}' class='img-icon1'></image>
+      <view class='bannerTxt'>
+        <text class="title">{{banner.title}}</text>
+        <text>{{banner.content}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='indexHeader flex'>
+    <view class='h_tl'>每日发现</view>
+    <view class='h_r'><navigator url='../list/list' open-type='switchTab'>查看更多</navigator></view>
+  </view>
+  <view class='swiperList'>
+    <swiper class="swiperClass" indicator-dots="{{false}}" autoplay="{{false}}" previous-margin="{{'0rpx'}}" next-margin="{{'40rpx'}}" bindchange="swiperChange">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <view class="slide-image {{swiperIndex == index ? 'active' : ''}}">
+          <!-- <image src="{{item}}"/> -->
+            <view class="swiperMain"  bindtap='preImg' data-src='{{item.linkSrc}}'>
+              <view class='swiperFlex flex'>
+                <image class="icon" src='{{item.url}}'></image>
+                <view>
+                  <text class='title'>{{item.title}}</text>
+                  <view class='starArr'>
+                    <text class='star' style='width:{{item.pf}}%'></text>
+                  </view>
+                </view>
+              </view>
+              <view class='swiperTxt'>
+                {{item.txt}}
+              </view> 
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <block wx:for="{{indexList}}" wx:key="{{index}}">
+    <view class='indexList' bindtap='preImg' data-src='{{item.linkSrc}}'>
+      <view class='listImg'><image src='{{item.img}}'></image></view>
+      <view class="indexFlex flex">
+        <view class='title'>
+          <text class='tl'>{{item.title}}</text>
+          <text>{{item.content}}</text>
+        </view>
+        <view class='pf'>
+          <image src='../../images/pf.png' class='pfImg'></image>{{item.pf/10}}
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+
+
+  <!-- <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+</view>
