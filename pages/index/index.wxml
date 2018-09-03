@@ -1,18 +1,27 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="bannerMain" bindtap='preImg' data-src='{{banner.linkSrc}}'>
-    <image class='bannerImg' src="{{banner.imgSrc}}"></image>
-    <view class='left-layout'>
-      <image src='{{banner.gameSrc}}' class='img-icon1'></image>
-      <view class='bannerTxt'>
-        <text class="title">{{banner.title}}</text>
-        <text>{{banner.content}}</text>
+  <swiper indicator-dots="{{indicatorDots}}" class="swiperTjc"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{banner}}" wx:key="{{index}}">
+    <swiper-item>
+      <view class="bannerMain" bindtap='preImg' data-src='{{item.linkSrc}}' data-id="{{item.appId}}">
+        <image class='bannerImg' src="{{item.img2}}"></image>
+        <view class='left-layout'>
+          <image src='{{item.icon}}' class='img-icon1'></image>
+          <view class='bannerTxt'>
+            <text class="title">{{item.gameName}}</text>
+            <text>{{item.des}}</text>
+          </view>
+        </view>
       </view>
-    </view>
-  </view>
+    </swiper-item>
+    </block>
+  </swiper>
+  
   <view class='indexHeader flex'>
     <view class='h_tl'>每日发现</view>
     <view class='h_r'><navigator url='../list/list' open-type='switchTab'>查看更多</navigator></view>
+    <!-- <view class='h_r'><navigator target="miniProgram" app-id="wxd74ded24b855ab98" path="" open-type='navigate' extra-data="" version="release">查看更多</navigator></view> -->
   </view>
   <view class='swiperList'>
     <swiper class="swiperClass" indicator-dots="{{false}}" autoplay="{{false}}" previous-margin="{{'0rpx'}}" next-margin="{{'40rpx'}}" bindchange="swiperChange">
@@ -20,18 +29,18 @@
         <swiper-item>
           <view class="slide-image {{swiperIndex == index ? 'active' : ''}}">
           <!-- <image src="{{item}}"/> -->
-            <view class="swiperMain"  bindtap='preImg' data-src='{{item.linkSrc}}'>
+            <view class="swiperMain"  bindtap='preImg' data-id='{{item.appId}}' data-src='{{item.linkSrc}}'>
               <view class='swiperFlex flex'>
-                <image class="icon" src='{{item.url}}'></image>
+                <image class="icon" src='{{item.icon}}'></image>
                 <view>
-                  <text class='title'>{{item.title}}</text>
+                  <text class='title'>{{item.gameName}}</text>
                   <view class='starArr'>
-                    <text class='star' style='width:{{item.pf}}%'></text>
+                    <text class='star' style='width:100%'></text>
                   </view>
                 </view>
               </view>
               <view class='swiperTxt'>
-                {{item.txt}}
+                {{item.shortDesc}}
               </view> 
             </view>
           </view>
@@ -40,31 +49,18 @@
     </swiper>
   </view>
   <block wx:for="{{indexList}}" wx:key="{{index}}">
-    <view class='indexList' bindtap='preImg' data-src='{{item.linkSrc}}'>
-      <view class='listImg'><image src='{{item.img}}'></image></view>
+    <view class='indexList' bindtap='preImg' data-id='{{item.appId}}' data-src='{{item.linkSrc}}'>
+      <view class='listImg'><image src='{{item.img1}}'></image></view>
       <view class="indexFlex flex">
         <view class='title'>
-          <text class='tl'>{{item.title}}</text>
-          <text>{{item.content}}</text>
+          <text class='tl'>{{item.gameName}}</text>
+          <text>{{item.des}}</text>
         </view>
         <view class='pf'>
-          <image src='../../images/pf.png' class='pfImg'></image>{{item.pf/10}}
+          <image src='../../images/pf.png' class='pfImg'></image>10
         </view>
       </view>
     </view>
   </block>
-
-
-
-
-  <!-- <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view> -->
 </view>
+<button class="shareBtn" open-type='share' bindtap='onShareAppMessage' data-title="坚果游戏盒" data-path="pages/index/index">分享给朋友</button>

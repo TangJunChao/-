@@ -1,4 +1,5 @@
 const hrefTo = require('../../../utils/link.js');
+const network = require('../../../utils/network.js');
 Page({
 
   /**
@@ -59,7 +60,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    wx.showLoading({
+      title: '加载中',
+    });
+    var _that = this;
+    network.GET('/Api_applet/list/', {
+      success: function (res) {
+        // console.log(res)
+        // console.log(res.data.cvoData)
+        let data = res.data.cvoData;
+        //拿到解密后的数据，进行代码逻辑 
+        _that.newGame(data);
+        wx.hideLoading();
+      },
+      fail: function () {
+        //失败后的逻辑  
+
+      },
+    }) 
+  },
+  newGame(data){
+    this.setData({
+      newGame: data.reverse()
+    })
   },
 
   /**

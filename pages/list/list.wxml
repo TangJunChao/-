@@ -7,16 +7,16 @@
     </view>
     <!-- listplay -->
     <block wx:for="{{newGame}}" wx:key="{{index}}">
-      <view class='listPlay' bindtap='preImg' data-src="{{item.linkSrc}}">
-        <image class='img1' src='{{item.url}}'></image>
+      <view class='listPlay' bindtap='preImg' data-id='{{item.appId}}' data-src="{{item.linkSrc}}">
+        <image class='img1' src='{{item.icon}}'></image>
         <view class='flex listFlex'>
           <view class='flexTxt white-space'>
-            <text class='title white-space'>{{item.title}}</text>
-            <text class='txt white-space'>{{item.content}}</text>
+            <text class='title white-space'>{{item.gameName}}</text>
+            <text class='txt white-space'>{{item.des}}</text>
             <text class='label white-space'>{{item.label}}</text>
           </view>
           <view class='pf'>
-            <image class='pfImg' src='../../images/pf.png'></image>{{item.pf/10}}
+            <image class='pfImg' src='../../images/pf.png'></image>10
           </view>
         </view>
       </view>
@@ -28,10 +28,10 @@
       <image class='banImg' src='../../images/ban.jpg' bindtap='hrefTo' data-link="yizhi/yizhi"></image>
       <view class='po listThree flex'>
       <block wx:for="{{yizhi}}" wx:key="{{index}}">
-        <view bindtap='preImg' data-src="{{item.linkSrc}}" class='list'>
-          <image class='listImg' src='{{item.url}}'></image>
-          <text class='title'>{{item.title}}</text>
-          <text class='txt'>{{item.la}}</text>
+        <view bindtap='preImg' data-id="{{item.appId}}" data-src="{{item.linkSrc}}" class='list'>
+          <image class='listImg' src='{{item.icon}}'></image>
+          <text class='title'>{{item.gameName}}</text>
+          <text class='txt'>{{item.label}}</text>
         </view>
       </block>
       </view>
@@ -44,12 +44,13 @@
     </view>
     <view class='listThree flex'>
       <block wx:for="{{shaonao}}" wx:key="{{index}}">
-        <view bindtap='preImg' data-src="{{item.linkSrc}}" class='list'>
-          <image class='listImg' src='{{item.url}}'></image>
-          <text class='title'>{{item.title}}</text>
-          <text class='txt'>{{item.la}}</text>
+        <view bindtap='preImg' data-id="{{item.appId}}" data-src="{{item.linkSrc}}" class='list'>
+          <image class='listImg' src='{{item.icon}}'></image>
+          <text class='title'>{{item.gameName}}</text>
+          <text class='txt'>{{item.label}}</text>
         </view>
       </block>
     </view>
   </view>
 </view>
+<button class="shareBtn" open-type='share' bindtap='onShareAppMessage' data-title="坚果游戏盒" data-path="pages/list/list">分享给朋友</button>

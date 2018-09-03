@@ -1,5 +1,6 @@
 /**index.wxss**/
 .container{padding:15rpx;}
+.swiperTjc{height:697rpx;background:#fff;}
 .bannerMain{position:relative;width:720rpx;height:697rpx;background:#aaa;border-radius:15rpx;}
 .bannerImg{width:720rpx;height:697rpx;border-radius:15rpx;}
 .left-layout{position:absolute;left:0;bottom:0;height:160rpx;width:100%;background:rgba(0,0,0,0.2);border-radius:0 0 15rpx 15rpx;}
@@ -12,7 +13,7 @@
   width: 720rpx;
   height: 310rpx;
 }
-swiper-item{
+.swiperClass swiper-item{
   padding-top:10rpx;
 }
 .swiperClass .slide-image{

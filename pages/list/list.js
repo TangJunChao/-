@@ -1,5 +1,5 @@
 const hrefTo = require('../../utils/link.js');
-
+const network = require('../../utils/network.js');
 Page({
   data: {
     newGame:[
@@ -98,10 +98,47 @@ Page({
   },
   hrefTo: hrefTo.hrefTo,
   preImg: hrefTo.preImg,
+  onShareAppMessage: hrefTo.shareFn,
   onLoad: function () {
+    wx.showLoading({
+      title: '加载中',
+    });
+    var _that = this;
+    network.GET('/Api_applet/list/', {
+      success: function (res) {
+        // console.log(res)
+        // console.log(res.data.cvoData)
+        let data = res.data.cvoData;
+        //拿到解密后的数据，进行代码逻辑 
+        _that.newGame(data);
+        _that.yzData(data);
+        _that.snData(data);
+        wx.hideLoading();
+      },
+      fail: function () {
+        //失败后的逻辑  
+
+      },
+    }) 
+
     //转发
     wx.showShareMenu({
       withShareTicket: true
+    })
+  },
+  newGame(data){
+    this.setData({
+      newGame:data.slice(0,3)
+    })
+  },
+  yzData(data){
+    this.setData({
+      yizhi:data.slice(4,7)
+    })
+  },
+  snData(data) {
+    this.setData({
+      shaonao: data.slice(8,11)
     })
   },
   onPullDownRefresh: function () {

@@ -10,4 +10,3 @@
 .listPartLast{position:relative;margin:0 30rpx;padding:30rpx 0;}
 .listPartLast .indexHeader{padding:0 40rpx;}
 .listPartLast .listThree .list{margin-top:20rpx;padding-bottom:0;}
-page{padding-bottom:30rpx;}
